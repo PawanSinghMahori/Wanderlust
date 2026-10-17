@@ -14,14 +14,15 @@ const listingSchema = new Schema({
         type: Number,
     },
     image: {
+    filename: {
         type: String,
-        default: 
-        'https://images.unsplash.com/photo-1789980635138-0a3f1882c70f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
-         set: (v) =>
-          v=== ''
-           ? 'https://images.unsplash.com/photo-1789980635138-0a3f1882c70f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D' 
-           : v,
+        default: "listingimage"
     },
+    url: {
+        type: String,
+        default: "https://images.unsplash.com/photo-1789980635138-0a3f1882c70f?q=80&w=687&auto=format&fit=crop"
+    }
+},
     location: {
         type: String,
     },
