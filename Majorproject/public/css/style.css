@@ -86,8 +86,8 @@ body{
 }
 
 .card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;    
+    opacity: 0.2 !important ;
+    background-color: white !;    
 }
 
 /* Make all listing cards consistent */
@@ -98,4 +98,33 @@ body{
 
 .card-text {
     margin: 0;
+}
+
+.newbtn{
+     background-color:#fe424d !important;
+    border: none !important;
+
+}
+.edit-btn{
+    background-color:#fe424d !important;
+    border: none !important;
+}
+
+/* Center the listing action buttons */
+.btn-danger {
+    background-color: #fe424d;
+    border: 1px solid #fe424d;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 22px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #e63946;
+    border-color: #e63946;
+    color: white;
+}
+.show-img{
+    height: 30vph;
 }
