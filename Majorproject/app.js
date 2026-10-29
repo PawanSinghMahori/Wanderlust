@@ -5,13 +5,14 @@ const Listing = require('./Models/listing.js');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
 
 const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust';
 async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
-main().then(() => {
+main().then(() => { 
     console.log('MongoDB connected');
 }).catch((err) => {
    console.error('MongoDB connection error:', err);
@@ -46,11 +47,12 @@ app.get('/listings/:id', async(req, res) => {
 });
 
 //Create route
-app.post('/listings', async (req, res) => {
+app.post('/listings', wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
     await newListing.save();
-    res.redirect('/listings');
-}); 
+    res.redirect('/listings'); 
+    })   
+); 
 
 
 //Edit route
@@ -88,6 +90,10 @@ app.delete('/listings/:id', async (req, res) => {
 //     console.log('Sample listing saved to the database');
 //     res.send('Successfully tested.');
 // });
+
+app.use((err,req, res, next )=> {
+    res.send("Something went wrong!");
+});
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
