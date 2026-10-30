@@ -27,9 +27,15 @@
         </div>
         
         <div class="mb-3">
-            <label for="Image" class="form-label">Image</label>
-            <input type="text" class="form-control" name="listing[image]"  value="<%= listing.image.url%>"/>
-        </div>
+         <label for="image" class="form-label">Image URL</label>
+         <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="listing[image][url]"
+            value="<%= listing.image?.url || '' %>"
+         />
+       </div>
 
         <div class="mb-3">
             <label for="Country" class="form-label">Country</label>
