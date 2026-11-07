@@ -42,10 +42,17 @@
             <div class = "invalid-feedback">Location is invalid</div>
         </div>
         
-        <div class="mb-3">
-            <label for="image" class="form-label">Image URL/Link</label>
-            <input type="text" name="listing[image]" placeholder="Enter Image URL/Link" class="form-control"/>
-        </div>
+       <div class="mb-3">
+         <label for="image" class="form-label">Image URL/Link</label>
+         <input
+           type="text"
+           class="form-control"
+           id="image"
+           name="listing[image][url]"
+           placeholder="Enter image URL"
+           required
+         />
+       </div>
         
         <br/>
         <button class="btn btn-dark newbtn type="submit>Add Listing</button>
